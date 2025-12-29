@@ -891,7 +891,41 @@
             color: #8a8a8a;
             font-size: 0.95em;
         }
+        .view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px dashed rgba(255, 182, 217, 0.3);
+}
 
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #ff9ed4 0%, #a8d5ff 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(255, 182, 217, 0.3);
+}
+
+.view-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 158, 212, 0.5);
+}
+
+.view-more-btn i {
+    transition: transform 0.3s;
+}
+
+.view-more-btn:hover i {
+    transform: translateX(5px);
+}
         @media (max-width: 968px) {
     .home-content {
         grid-template-columns: 1fr;
@@ -1478,7 +1512,7 @@
     <div class="content-section">
         <div class="section-header">
             <h2 class="section-title">Projects 🚀</h2>
-            <p class="section-subtitle">Some things I've been working on</p>
+            <p class="section-subtitle">Somethings I've been working on</p>
         </div>
         
         <div class="projects-grid">
@@ -1550,6 +1584,16 @@
                 <p>An automated stargazing assistant that identifies and classifies celestial objects in telescope images. Achieved 92% accuracy in detecting stars, galaxies, and other cosmic phenomena - helping astronomers process massive amounts of sky survey data efficiently.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python, YOLOv3</span>
             </div>
+            </div>
+            
+            <div class="view-more-container">
+                <a href="https://github.com/Vidyap13?tab=repositories" target="_blank" class="view-more-btn">
+                    <span>View More Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
         </div>
     </div>
 </div>
@@ -1602,6 +1646,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
+
 
 
 
