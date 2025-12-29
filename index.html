@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         .background-animation {
             position: fixed;
             top: 0;
@@ -129,7 +128,6 @@
             }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -185,7 +183,6 @@
             box-shadow: 0 5px 20px rgba(255, 182, 217, 0.4);
         }
 
-        /* Main Content Container */
         .page {
             display: none;
             min-height: 100vh;
@@ -202,7 +199,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Home Page */
         .home-container {
             height: 100vh;
             display: flex;
@@ -344,7 +340,6 @@
             box-shadow: 0 10px 30px rgba(255, 158, 212, 0.5);
         }
 
-        /* Content Sections */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -369,7 +364,6 @@
             font-weight: 300;
         }
 
-        /* About Section */
         .about-content {
             background: white;
             padding: 50px;
@@ -416,7 +410,215 @@
             margin: 0;
         }
 
-        /* Timeline Styles for Experience */
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 1.8em;
+            color: #3d3d3d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-title i {
+            color: #ffb6d9;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9ed4 0%, #a8d5ff 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .tech-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(255, 182, 217, 0.3);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .tech-item:active .tech-icon {
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        .tech-icon.blue { background: #e3f2fd; }
+        .tech-icon.purple { background: #f3e5f5; }
+        .tech-icon.pink { background: #fce4ec; }
+        .tech-icon.orange { background: #fff3e0; }
+        .tech-icon.green { background: #e8f5e9; }
+        .tech-icon.teal { background: #e0f2f1; }
+        .tech-icon.indigo { background: #e8eaf6; }
+        .tech-icon.red { background: #ffebee; }
+
+        .tech-info {
+            flex: 1;
+        }
+
+        .tech-name {
+            font-size: 1.1em;
+            color: #3d3d3d;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9ed4 0%, #a8d5ff 100%);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+            position: relative;
+        }
+
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-level {
+            font-size: 0.85em;
+            color: #8a8a8a;
+            font-weight: 500;
+        }
+
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .soft-skill-card {
+            background: linear-gradient(135deg, #fff5f9 0%, #f0f9ff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .soft-skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 182, 217, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .soft-skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .soft-skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 182, 217, 0.3);
+        }
+
+        .soft-skill-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .soft-skill-card h3 {
+            color: #3d3d3d;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .soft-skill-card p {
+            color: #6a6a6a;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
         .timeline {
             position: relative;
             max-width: 900px;
@@ -510,7 +712,6 @@
             top: 0;
         }
 
-        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -573,6 +774,43 @@
             margin-bottom: 10px;
         }
 
+        .project-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .project-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #6a6a6a;
+            font-weight: 500;
+        }
+
+        .progress-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #f57c00;
+            font-weight: 600;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         .project-card p {
             color: #6a6a6a;
             line-height: 1.7;
@@ -596,90 +834,8 @@
             font-size: 10px;
         }
 
-        .project-tag.jupyter { background: #fff3e0; color: #f57c00; }
-        .project-tag.javascript { background: #fff9c4; color: #f9a825; }
         .project-tag.python { background: #e3f2fd; color: #1e88e5; }
 
-        /* Tech Grid for Skills */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .tech-item {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 182, 217, 0.3);
-        }
-
-        .tech-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 15px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            transition: all 0.3s;
-        }
-
-        .tech-item:active .tech-icon {
-            animation: wiggle 0.5s ease-in-out;
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
-            75% { transform: rotate(-10deg); }
-        }
-
-        .tech-icon.blue { background: #e3f2fd; color: #1e88e5; }
-        .tech-icon.purple { background: #f3e5f5; color: #8e24aa; }
-        .tech-icon.pink { background: #fce4ec; color: #e91e63; }
-        .tech-icon.orange { background: #fff3e0; color: #f57c00; }
-        .tech-icon.green { background: #e8f5e9; color: #43a047; }
-        .tech-icon.teal { background: #e0f2f1; color: #00897b; }
-        .tech-icon.indigo { background: #e8eaf6; color: #3949ab; }
-        .tech-icon.red { background: #ffebee; color: #e53935; }
-
-        .tech-name {
-            font-size: 1.1em;
-            color: #3d3d3d;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .skill-rating {
-            display: flex;
-            justify-content: center;
-            gap: 3px;
-            margin-top: 8px;
-        }
-
-        .star {
-            color: #ffd700;
-            font-size: 14px;
-        }
-
-        .star.empty {
-            color: #e0e0e0;
-        }
-
-        /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -787,18 +943,8 @@
             }
 
             .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 15px;
-            }
-
-            .tech-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .tech-name {
-                font-size: 0.9em;
             }
 
             .section-title {
@@ -831,11 +977,14 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .soft-skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
     <div class="background-animation">
         <div class="floating-shape shape-1"></div>
         <div class="floating-shape shape-2"></div>
@@ -845,443 +994,527 @@
     </div>
     <div class="gradient-overlay"></div>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo" onclick="showPage('home')">VP</div>
         <div class="nav-buttons">
             <a class="nav-btn" onclick="showPage('home')">Home</a>
             <a class="nav-btn" onclick="showPage('about')">About</a>
-            <a class="nav-btn" onclick="showPage('skills')">Skills</a>
-            <a class="nav-btn" onclick="showPage('experience')">Experience</a>
-            <a class="nav-btn" onclick="showPage('projects')">Projects</a>
-            <a class="nav-btn" onclick="showPage('contact')">Contact</a>
+<a class="nav-btn" onclick="showPage('skills')">Skills</a>
+<a class="nav-btn" onclick="showPage('experience')">Experience</a>
+<a class="nav-btn" onclick="showPage('projects')">Projects</a>
+<a class="nav-btn" onclick="showPage('contact')">Contact</a>
+</div>
+</nav>
+<div id="home" class="page active">
+    <div class="home-container">
+        <div class="home-content">
+            <div class="illustration-container">
+                <div class="illustration">
+                    <div class="deco-circle deco-1"></div>
+                    <div class="profile-illustration">
+                        <span class="waving-girl">👋</span>
+                    </div>
+                    <div class="deco-circle deco-2"></div>
+                    <span class="sparkle-deco sparkle-1">✨</span>
+                    <span class="sparkle-deco sparkle-2">💫</span>
+                </div>
+            </div>
+            
+            <div class="intro-text">
+                <h1>Hey, I'm Vidya</h1>
+                <p>I've spent enough time in the trenches of deployment to know that infrastructure is everything. But eventually, I realized I wanted to build the brains, not just the plumbing. Now I'm a Master's student at THWS, combining my engineering "OCD" with the creativity of AI to build things that are as smart as they are stable. 🚀</p>
+                <a class="cta-button" onclick="showPage('contact')">
+                    Let's Chat <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
-    </nav>
+    </div>
+</div>
 
-    <!-- Home Page -->
-    <div id="home" class="page active">
-        <div class="home-container">
-            <div class="home-content">
-                <div class="illustration-container">
-                    <div class="illustration">
-                        <div class="deco-circle deco-1"></div>
-                        <div class="profile-illustration">
-                            <span class="waving-girl">👋</span>
+<div id="about" class="page">
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">About Me 💫</h2>
+            <p class="section-subtitle">Get to know me better</p>
+        </div>
+        
+        <div class="about-content">
+            <p>My journey in technology began with a Bachelor's in Information Science and Engineering, and I've since evolved into a software engineer with a deep fascination for Artificial Intelligence.</p>
+            
+            <p>I love fixing the gap between robust system architecture and cutting-edge Deep Learning. From automating workflows to building intelligent systems, I'm always excited to solve real-world problems with technology.</p>
+            
+            <p>When I'm not coding or training models, you'll find me creating acrylic paintings, DIY crafting, journaling my thoughts, or playing badminton! 🎨🏸</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Würzburg, Germany</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <p>Master's in AI at THWS</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Currently</h3>
+                    <p>WerkStudent at Clario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="skills" class="page">
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Expertise 🎯</h2>
+            <p class="section-subtitle">What I bring to the table</p>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skills-category">
+                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon blue">🐍</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Python</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
                         </div>
-                        <div class="deco-circle deco-2"></div>
-                        <span class="sparkle-deco sparkle-1">✨</span>
-                        <span class="sparkle-deco sparkle-2">💫</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="intro-text">
-                    <h1>Hey, I'm Vidya</h1>
-                    <p>I've spent enough time in the trenches of deployment to know that infrastructure is everything. But eventually, I realized I wanted to build the brains, not just the plumbing. Now I’m a Master’s student at THWS, combining my engineering "OCD" with the creativity of AI to build things that are as smart as they are stable. 🚀</p>
-                    <a class="cta-button" onclick="showPage('contact')">
-                        Let's Chat <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Page -->
-    <div id="about" class="page">
-        <div class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">About Me 💫</h2>
-                <p class="section-subtitle">Get to know me better</p>
-            </div>
-            
-            <div class="about-content">
-                <p> My journey in technology began with a Bachelor's in Information Science and Engineering, and I've since evolved into a software engineer with a deep fascination for Artificial Intelligence.</p>
-                
-                <p>I love fixing the gap between robust system architecture and cutting-edge Deep Learning. From automating workflows to building intelligent systems, I'm always excited to solve real-world problems with technology.</p>
-                
-                <p>When I'm not coding or training models, you'll find me creating acrylic paintings, DIY crafting, journaling my thoughts, or playing badminton! 🎨🏸</p>
-
-                <div class="info-grid">
-                    <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Würzburg, Germany</p>
-                    </div>                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Skills Page -->
-    <div id="skills" class="page">
-        <div class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">Technical Arsenal 🛠️</h2>
-                <p class="section-subtitle">Tools and technologies I work with</p>
-            </div>
-            
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <div class="tech-icon blue">🐍</div>
-                    <div class="tech-name">Python</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon purple">📚</div>
+                            <div class="tech-info">
+                                <div class="tech-name">C#</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon purple">📚</div>
-                    <div class="tech-name">C#</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-												<span class="star empty">★</span>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon red">⚙️</div>
+                            <div class="tech-info">
+                                <div class="tech-name">C++</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon pink">🔥</div>
-                    <div class="tech-name">PyTorch</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon orange">🧠</div>
-                    <div class="tech-name">TensorFlow</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>                       
-												<span class="star empty">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>              
-                <div class="tech-item">
-                    <div class="tech-icon blue">🐳</div>
-                    <div class="tech-name">Docker</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon pink">🐰</div>
-                    <div class="tech-name">RabbitMQ</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon teal">🗄️</div>
-                    <div class="tech-name">MySQL</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon green">🍃</div>
-                    <div class="tech-name">MongoDB</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon indigo">💻</div>
-                    <div class="tech-name">.NET</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon orange">☕</div>
-                    <div class="tech-name">Java</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon red">⚙️</div>
-                    <div class="tech-name">C++</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>              
-                <div class="tech-item">
-                    <div class="tech-icon purple">🤖</div>
-                    <div class="tech-name">LLMs</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon pink">🎯</div>
-                    <div class="tech-name">Machine Learning</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon green">🌐</div>
-                    <div class="tech-name">REST APIs</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon orange">📊</div>
-                    <div class="tech-name">Jira</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon teal">🚀</div>
-                    <div class="tech-name">Git</div>
-                    <div class="skill-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon orange">☕</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Java</div>
+                                <div class="skill-level">Proficient</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 70%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Experience Page -->
-    <div id="experience" class="page">
-        <div class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience 💼</h2>
-                <p class="section-subtitle">My journey in the tech world</p>
+            <div class="skills-category">
+                <h3 class="category-title"><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon pink">🔥</div>
+                            <div class="tech-info">
+                                <div class="tech-name">PyTorch</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon orange">🧠</div>
+                            <div class="tech-info">
+                                <div class="tech-name">TensorFlow</div>
+                                <div class="skill-level">Proficient</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon purple">🤖</div>
+                            <div class="tech-info">
+                                <div class="tech-name">LLMs & NLP</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon pink">🎯</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Machine Learning</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">09/2025 – Present</div>
-                        <h3>WerkStudent</h3>
-                        <div class="company">Clario</div>
-                        <ul class="experience-list">
-                            <li>Automated data transfer from PHT device website to Excel using custom scripts, saving time and reducing manual errors</li>
-                            <li>Streamlined SIM card & model entry by developing code to auto-fill key details</li>
-                            <li>Optimized data workflows by implementing real-time synchronization between web data and Excel reports</li>
-                        </ul>
+
+            <div class="skills-category">
+                <h3 class="category-title"><i class="fas fa-server"></i> DevOps & Databases</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon blue">🐳</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Docker</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon teal">🗄️</div>
+                            <div class="tech-info">
+                                <div class="tech-name">MySQL</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon green">🍃</div>
+                            <div class="tech-info">
+                                <div class="tech-name">MongoDB</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon pink">🐰</div>
+                            <div class="tech-info">
+                                <div class="tech-name">RabbitMQ</div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon indigo">💻</div>
+                            <div class="tech-info">
+                                <div class="tech-name">.NET</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon green">🌐</div>
+                            <div class="tech-info">
+                                <div class="tech-name">REST APIs</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon teal">🚀</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Git</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-header">
+                            <div class="tech-icon orange">📊</div>
+                            <div class="tech-info">
+                                <div class="tech-name">Jira</div>
+                                <div class="skill-level">Expert</div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%"></div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">11/2023 – 03/2025</div>
-                        <h3>Software Engineer</h3>
-                        <div class="company">HCLTech</div>
-                        <ul class="experience-list">
-                            <li>Led project management initiatives under ITER project, resolving framework bottlenecks and improved application performance by 70%</li>
-                            <li>Implemented cloud-based deployment solutions using Docker and RabbitMQ for streamlined data acquisition systems</li>
-                            <li>Managed dashboard upgrade utilizing agile methodologies, reducing data retrieval time by 60%</li>
-                        </ul>
+            <div class="skills-category">
+                <h3 class="category-title"><i class="fas fa-heart"></i> Soft Skills</h3>
+                <div class="soft-skills-grid">
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">💡</div>
+                        <h3>Problem Solving</h3>
+                        <p>Creative approach to complex challenges with analytical thinking</p>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">08/2022 – 11/2023</div>
-                        <h3>Graduate Trainee Engineer</h3>
-                        <div class="company">HCLTech</div>
-                        <ul class="experience-list">
-                            <li>Automated system administration tasks through scripting, reducing manual effort by 80%</li>
-                            <li>Designed and implemented SQL database optimization, reducing query execution time by 35%</li>
-                            <li>Worked closely with development teams to resolve customer issues and improve user satisfaction</li>
-                        </ul>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">🤝</div>
+                        <h3>Team Collaboration</h3>
+                        <p>Effective communication and teamwork in cross-functional environments</p>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">04/2022 – 05/2022</div>
-                        <h3>Intern</h3>
-                        <div class="company">Prinston Smart Engineers</div>
-                        <ul class="experience-list">
-                            <li>Developed expertise in Data Science with Python, focusing on neural networks and their branches</li>
-                            <li>Applied libraries and frameworks to optimize implementation</li>
-                            <li>Gained hands-on experience with software tools, enhancing technical proficiency</li>
-                        </ul>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">⚡</div>
+                        <h3>Quick Learner</h3>
+                        <p>Rapidly adapt to new technologies and methodologies</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">🎯</div>
+                        <h3>Project Management</h3>
+                        <p>Organized workflow with agile methodologies using Jira & Confluence</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">✨</div>
+                        <h3>Attention to Detail</h3>
+                        <p>Meticulous code quality and thorough testing practices</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">🌟</div>
+                        <h3>Leadership</h3>
+                        <p>Led project initiatives and mentored junior team members</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Projects Page -->
-    <div id="projects" class="page">
-        <div class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">Projects 🚀</h2>
-                <p class="section-subtitle">Some things I've been working on</p>
+<div id="experience" class="page">
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience 💼</h2>
+            <p class="section-subtitle">My journey in the tech world</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">09/2025 – Present</div>
+                    <h3>WerkStudent</h3>
+                    <div class="company">Clario</div>
+                    <ul class="experience-list">
+                        <li>Automated data transfer from PHT device website to Excel using custom scripts, saving time and reducing manual errors</li>
+                        <li>Streamlined SIM card & model entry by developing code to auto-fill key details</li>
+                        <li>Optimized data workflows by implementing real-time synchronization between web data and Excel reports</li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">📁</div>                    
-                    <h3>THWS MAI Chatbot</h3>
-                    <p>Developing a RAG-powered chatbot to assist incoming MAI students using Qwen model with FAISS vector database for efficient semantic search.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> Python, Qwen , RAG</span>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-icon">📁</div>                  
-                    <h3>Amazon Review RAG</h3>
-                    <p>RAG-based product review assistant using Amazon Reviews dataset with semantic retrieval showing 30% improvement in response accuracy.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> Python, LangChain, FAISS</span>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">11/2023 – 03/2025</div>
+                    <h3>Software Engineer</h3>
+                    <div class="company">HCLTech</div>
+                    <ul class="experience-list">
+                        <li>Led project management initiatives under ITER project, resolving framework bottlenecks and improved application performance by 70%</li>
+                        <li>Implemented cloud-based deployment solutions using Docker and RabbitMQ for streamlined data acquisition systems</li>
+                        <li>Managed dashboard upgrade utilizing agile methodologies, reducing data retrieval time by 60%</li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-icon">📁</div>                    
-                    <h3>H. pylori Detection</h3>
-                    <p>Dual-model pipeline (YOLOv8 + R-CNN) for H. pylori bacteria detection with first-iteration accuracy of 84% and 93%.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> QuPath, YOLO, faster R-CNN</span>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">08/2022 – 11/2023</div>
+                    <h3>Graduate Trainee Engineer</h3>
+                    <div class="company">HCLTech</div>
+                    <ul class="experience-list">
+                        <li>Automated system administration tasks through scripting, reducing manual effort by 80%</li>
+                        <li>Designed and implemented SQL database optimization, reducing query execution time by 35%</li>
+                        <li>Worked closely with development teams to resolve customer issues and improve user satisfaction</li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-icon">📁</div>
-                    <a href="https://github.com/Vidyap13/Blackjack2025" target="_blank" class="external-link">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <h3>Blackjack RL</h3>
-                    <p>Implemented Expected SARSA and Monte Carlo algorithms achieving 43.21% win rate with Hi-Lo card counting system.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> Python, Expected SARSA, Monte Carlo Methods</span>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">📁</div>
-                    <a href="https://github.com/Vidyap13/ParticleFilter2025" target="_blank" class="external-link">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <h3>Particle Filter</h3>
-                    <p>Simulated trajectories using physics models and estimated positions with particle filters, handling sensor dropouts.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> Python</span>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">📁</div>                    
-                    <h3>Megacosm</h3>
-                    <p>YOLOv3 detection model for astronomical objects with 92% accuracy. Published in IRJCS research journal.</p>
-                    <span class="project-tag python"><i class="fas fa-circle"></i> Python, YOLOv3</span>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">04/2022 – 05/2022</div>
+                    <h3>Intern</h3>
+                    <div class="company">Prinston Smart Engineers</div>
+                    <ul class="experience-list">
+                        <li>Developed expertise in Data Science with Python, focusing on neural networks and their branches</li>
+                        <li>Applied libraries and frameworks to optimize implementation</li>
+                        <li>Gained hands-on experience with software tools, enhancing technical proficiency</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Contact Page -->
-    <div id="contact" class="page">
-        <div class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect! 💌</h2>
-                <p class="section-subtitle">Feel free to reach out</p>
+<div id="projects" class="page">
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Projects 🚀</h2>
+            <p class="section-subtitle">Some things I've been working on</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">📁</div>                    
+                <h3>THWS MAI Chatbot</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
+                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
+                </div>
+                <p>Developing a RAG-powered chatbot to assist incoming MAI students using Qwen model with FAISS vector database for efficient semantic search.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> Python, Qwen, RAG</span>
             </div>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <a href="mailto:vidyapadmanabha13@gmail.com">vidyapadmanabha13@gmail.com</a>
-                </div>
 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/vidya1311" target="_blank">linkedin.com/in/vidya1311</a>
+            <div class="project-card">
+                <div class="project-icon">📁</div>                  
+                <h3>Amazon Review RAG</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
+                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
                 </div>
+                <p>RAG-based product review assistant using Amazon Reviews dataset with semantic retrieval showing 30% improvement in response accuracy.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> Python, LangChain, FAISS</span>
+            </div>
 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/Vidyap13" target="_blank">github.com/Vidyap13</a>
+            <div class="project-card">
+                <div class="project-icon">📁</div>                    
+                <h3>H. pylori Detection</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
+                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
                 </div>
+                <p>Dual-model pipeline (YOLOv8 + R-CNN) for H. pylori bacteria detection with first-iteration accuracy of 84% and 93%.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> QuPath, YOLO, faster R-CNN</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📁</div>
+                <a href="https://github.com/Vidyap13/Blackjack2025" target="_blank" class="external-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <h3>Blackjack RL</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
+                </div>
+                <p>Implemented Expected SARSA and Monte Carlo algorithms achieving 43.21% win rate with Hi-Lo card counting system.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> Python, Expected SARSA, Monte Carlo</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📁</div>
+                <a href="https://github.com/Vidyap13/ParticleFilter2025" target="_blank" class="external-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <h3>Particle Filter</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
+                </div>
+                <p>Simulated trajectories using physics models and estimated positions with particle filters, handling sensor dropouts.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> Python</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📁</div>                    
+                <h3>Megacosm</h3>
+                <div class="project-meta">
+                    <span class="project-year"><i class="fas fa-calendar"></i> 2022</span>
+                </div>
+                <p>YOLOv3 detection model for astronomical objects with 92% accuracy. Published in IRJCS research journal.</p>
+                <span class="project-tag python"><i class="fas fa-circle"></i> Python, YOLOv3</span>
             </div>
         </div>
     </div>
+</div>
 
-    <footer>
-        <p>✨ Made with passion by Vidya Padmanabha</p>
-        <p>© 2025 • Built with HTML, CSS & Love</p>
-    </footer>
+<div id="contact" class="page">
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Let's Connect! 💌</h2>
+            <p class="section-subtitle">Feel free to reach out</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:vidyapadmanabha13@gmail.com">vidyapadmanabha13@gmail.com</a>
+            </div>
 
-    <script>
-        function showPage(pageName) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageName).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/vidya1311" target="_blank">linkedin.com/in/vidya1311</a>
+            </div>
 
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/Vidyap13" target="_blank">github.com/Vidyap13</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>✨ Made with passion by Vidya Padmanabha</p>
+    <p>© 2025 • Built with HTML, CSS & Love</p>
+</footer>
+
+<script>
+    function showPage(pageName) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById(pageName).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
