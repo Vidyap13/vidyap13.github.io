@@ -782,17 +782,16 @@
         }
 
         .project-year {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 12px;
-            background: #f0f0f0;
-            border-radius: 15px;
-            font-size: 0.85em;
-            color: #6a6a6a;
-            font-weight: 500;
-        }
-
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #e1f5fe 100%);
+    border-radius: 15px;
+    font-size: 0.85em;
+    color: #2e7d32;
+    font-weight: 600;
+}
         .progress-badge {
             display: inline-flex;
             align-items: center;
@@ -894,94 +893,189 @@
         }
 
         @media (max-width: 968px) {
-            .home-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
+    .home-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
 
-            .illustration-container {
-                order: -1;
-            }
+    .illustration-container {
+        order: -1;
+    }
 
-            .intro-text h1 {
-                font-size: 2em;
-            }
+    .intro-text h1 {
+        font-size: 2em;
+    }
 
-            .intro-text p {
-                font-size: 1.1em;
-            }
+    .intro-text p {
+        font-size: 1.1em;
+    }
 
-            nav {
-                padding: 15px 20px;
-            }
+    nav {
+        padding: 15px 20px;
+    }
 
-            .logo {
-                font-size: 1.5em;
-            }
+    .logo {
+        font-size: 1.5em;
+    }
 
-            .nav-buttons {
-                gap: 5px;
-                flex-wrap: wrap;
-            }
+    .nav-buttons {
+        gap: 5px;
+        flex-wrap: wrap;
+    }
 
-            .nav-btn {
-                padding: 8px 12px;
-                font-size: 0.85em;
-            }
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
 
-            .timeline::before {
-                left: 15px;
-            }
-            
-            .timeline-item {
-                padding-left: 50px;
-            }
-            
-            .timeline-dot {
-                left: 5px;
-            }
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-dot {
+        left: 5px;
+    }
 
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
-            }
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 
-            .section-title {
-                font-size: 2em;
-            }
+    .tech-item {
+        padding: 15px;
+    }
 
-            .profile-illustration {
-                width: 150px;
-                height: 150px;
-            }
+    .tech-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
 
-            .waving-girl {
-                font-size: 70px;
-            }
-        }
+    .tech-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+        margin: 0 auto;
+    }
 
-        @media (max-width: 600px) {
-            .intro-text h1 {
-                font-size: 1.6em;
-            }
+    .tech-info {
+        width: 100%;
+    }
 
-            .home-container {
-                padding: 20px 15px;
-            }
+    .tech-name {
+        font-size: 0.95em;
+    }
 
-            .about-content {
-                padding: 30px 20px;
-            }
+    .skill-level {
+        font-size: 0.8em;
+    }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+    .skill-bar-container {
+        width: 100%;
+        margin: 0 auto;
+    }
 
-            .soft-skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .soft-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .soft-skill-card {
+        padding: 20px 15px;
+    }
+
+    .soft-skill-icon {
+        font-size: 40px;
+    }
+
+    .soft-skill-card h3 {
+        font-size: 1.1em;
+    }
+
+    .soft-skill-card p {
+        font-size: 0.85em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .category-title {
+        font-size: 1.4em;
+    }
+
+    .profile-illustration {
+        width: 150px;
+        height: 150px;
+    }
+
+    .waving-girl {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro-text h1 {
+        font-size: 1.6em;
+    }
+
+    .home-container {
+        padding: 20px 15px;
+    }
+
+    .about-content {
+        padding: 30px 20px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-section {
+        padding: 60px 10px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .tech-item {
+        padding: 12px 8px;
+    }
+
+    .tech-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .tech-name {
+        font-size: 0.85em;
+    }
+
+    .skill-level {
+        font-size: 0.75em;
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .category-title {
+        font-size: 1.2em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+}
     </style>
 </head>
 <body>
@@ -1392,9 +1486,9 @@
                 <div class="project-icon">📁</div>                    
                 <h3>THWS MAI Chatbot</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
-                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-                </div>
+    <span class="project-year">🗓️ Nov 2025 - Present</span>
+    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
+</div>
                 <p>An AI-powered assistant that helps new Master's students navigate university life. Built with RAG architecture, it retrieves accurate answers from university documents and provides personalized guidance through natural conversations using the Qwen language model.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python, Qwen, RAG</span>
             </div>
@@ -1403,9 +1497,9 @@
                 <div class="project-icon">📁</div>                  
                 <h3>Amazon Review RAG</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
-                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-                </div>
+    <span class="project-year">🗓️ Nov 2025 - Present</span>
+    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
+</div>
                 <p>A smart shopping companion that cuts through thousands of product reviews to give you the real story. Uses semantic search to find relevant insights and summarizes what customers actually think about products, making online shopping decisions faster and more informed.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python, LangChain, FAISS</span>
             </div>
@@ -1414,9 +1508,9 @@
                 <div class="project-icon">📁</div>                    
                 <h3>H. pylori Detection</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
-                    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-                </div>
+    <span class="project-year">🗓️ Oct 2025 - Present</span>
+    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
+</div>
                 <p>A medical AI system that helps pathologists detect H. pylori bacteria in microscopy images. Combines two powerful detection models to achieve high accuracy, potentially speeding up diagnoses and improving patient outcomes in gastric disease screening.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> QuPath, YOLO, faster R-CNN</span>
             </div>
@@ -1426,10 +1520,9 @@
                 <a href="https://github.com/Vidyap13/Blackjack2025" target="_blank" class="external-link">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
-                <h3>Blackjack RL</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
-                </div>
+    <span class="project-year">🗓️ July 2025</span>
+</div>
                 <p>Teaching a computer to play Blackjack like a pro using reinforcement learning. The AI learns optimal strategies through trial and error, incorporating card counting techniques to maximize winning chances - a fun dive into decision-making algorithms.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python, Expected SARSA, Monte Carlo</span>
             </div>
@@ -1441,8 +1534,8 @@
                 </a>
                 <h3>Particle Filter</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2025</span>
-                </div>
+    <span class="project-year">🗓️ Jun 2025</span>
+</div>
                 <p>A robust tracking system that predicts object movement even when sensors fail or provide noisy data. Uses particle filtering to maintain accurate position estimates in uncertain conditions - crucial for applications like autonomous vehicles and robotics.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python</span>
             </div>
@@ -1451,8 +1544,8 @@
                 <div class="project-icon">📁</div>                    
                 <h3>Megacosm</h3>
                 <div class="project-meta">
-                    <span class="project-year"><i class="fas fa-calendar"></i> 2022</span>
-                </div>
+    <span class="project-year">🗓️ May 2022</span>
+</div>
                 <p>An automated stargazing assistant that identifies and classifies celestial objects in telescope images. Achieved 92% accuracy in detecting stars, galaxies, and other cosmic phenomena - helping astronomers process massive amounts of sky survey data efficiently.</p>
                 <span class="project-tag python"><i class="fas fa-circle"></i> Python, YOLOv3</span>
             </div>
@@ -1508,4 +1601,5 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
+
 
