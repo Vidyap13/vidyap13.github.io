@@ -1861,14 +1861,31 @@
         }
 
         // Load projects when page loads
-        window.addEventListener('DOMContentLoaded', loadGitHubProjects);
+        window.addEventListener('DOMContentLoaded', async function() {
+            await loadCustomOrder(); // Load custom order first
+            loadGitHubProjects(); // Then load projects
+        });
 
         // Edit mode variables
         let editMode = false;
         let draggedElement = null;
-        let customOrder = JSON.parse(localStorage.getItem('projectOrder') || '[]');
+        let customOrder = [];
         let allRepos = []; // Store all repositories
         let showingMore = false;
+
+        // Load custom order from JSON file
+        async function loadCustomOrder() {
+            try {
+                const response = await fetch('project-order.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    customOrder = data.order || [];
+                    console.log('Loaded custom order from JSON:', customOrder);
+                }
+            } catch (error) {
+                console.log('No custom order file found, using default order');
+            }
+        }
 
         // Enable edit mode with special key combination (Ctrl+Shift+E)
         document.addEventListener('keydown', function(e) {
@@ -2062,9 +2079,25 @@
                 }
             });
 
-            // Store permanently in localStorage so all visitors see the same order
-            localStorage.setItem('projectOrder', JSON.stringify(customOrder));
-            console.log('Custom order saved permanently:', customOrder);
+            // Create JSON content
+            const jsonContent = {
+                order: customOrder,
+                lastUpdated: new Date().toISOString()
+            };
+
+            // Download JSON file
+            const blob = new Blob([JSON.stringify(jsonContent, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'project-order.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            console.log('Custom order saved! Download the JSON file and upload it to your GitHub repo.');
+            alert('✅ Project order saved!\n\n📥 A file "project-order.json" has been downloaded.\n\n📤 Upload this file to your GitHub repository (same folder as index.html) for everyone to see your custom order!');
         }
 
         function applyCustomOrder(repos) {
