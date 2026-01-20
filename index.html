@@ -922,7 +922,7 @@
         }
 
         .edit-mode-btn {
-            display: inline-flex;
+            display: none; /* Hidden by default for public visitors */
             align-items: center;
             gap: 10px;
             padding: 14px 30px;
@@ -935,6 +935,10 @@
             font-weight: 600;
             transition: all 0.3s;
             cursor: pointer;
+        }
+
+        .edit-mode-btn.visible {
+            display: inline-flex;
         }
 
         .edit-mode-btn:hover {
@@ -974,6 +978,46 @@
         .edit-instructions p {
             color: #6a6a6a;
             margin: 0;
+        }
+
+        .more-projects-container {
+            display: none;
+            max-height: 600px;
+            overflow-y: auto;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f9 0%, #f0f9ff 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 182, 217, 0.3);
+        }
+
+        .more-projects-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .more-projects-container h3 {
+            color: #3d3d3d;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .more-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .view-more-btn.active {
+            background: white;
+            color: #ff9ed4;
+            border: 2px solid #ff9ed4;
+        }
+
+        .view-more-btn.active:hover {
+            background: #ff9ed4;
+            color: white;
         }
 
         .view-more-btn {
@@ -1606,16 +1650,23 @@
                     <p style="color: #8a8a8a; font-size: 1.1em;">Loading projects from GitHub...</p>
                 </div>
             </div>
+
+            <div class="more-projects-container" id="more-projects-container">
+                <h3>More Projects 📚</h3>
+                <div class="more-projects-grid" id="more-projects-grid">
+                    <!-- Additional projects will be loaded here -->
+                </div>
+            </div>
             
             <div class="view-more-container">
                 <button class="edit-mode-btn" id="edit-mode-btn" onclick="toggleEditMode()">
                     <i class="fas fa-edit"></i>
                     <span>Rearrange Projects</span>
                 </button>
-                <a href="https://github.com/Vidyap13?tab=repositories" target="_blank" class="view-more-btn">
+                <button class="view-more-btn" id="view-more-btn" onclick="toggleMoreProjects()">
                     <span>View More Projects</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -1854,6 +1905,95 @@
         let editMode = false;
         let draggedElement = null;
         let customOrder = [];
+        let allRepos = []; // Store all repositories
+        let showingMore = false;
+
+        // Enable edit mode with special key combination (Ctrl+Shift+E)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+                const editBtn = document.getElementById('edit-mode-btn');
+                editBtn.classList.add('visible');
+            }
+        });
+
+        function toggleMoreProjects() {
+            showingMore = !showingMore;
+            const container = document.getElementById('more-projects-container');
+            const btn = document.getElementById('view-more-btn');
+
+            if (showingMore) {
+                container.classList.add('active');
+                btn.classList.add('active');
+                btn.innerHTML = '<span>Show Less</span><i class="fas fa-chevron-up"></i>';
+                loadMoreProjects();
+                // Smooth scroll to more projects
+                setTimeout(() => {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                container.classList.remove('active');
+                btn.classList.remove('active');
+                btn.innerHTML = '<span>View More Projects</span><i class="fas fa-chevron-down"></i>';
+            }
+        }
+
+        async function loadMoreProjects() {
+            const username = 'Vidyap13';
+            const grid = document.getElementById('more-projects-grid');
+            
+            try {
+                if (allRepos.length === 0) {
+                    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+                    if (response.ok) {
+                        allRepos = await response.json();
+                    }
+                }
+
+                // Get repos that aren't already shown in the main section
+                const mainContainer = document.getElementById('projects-container');
+                const mainRepoNames = new Set();
+                mainContainer.querySelectorAll('h3').forEach(h3 => {
+                    mainRepoNames.add(h3.textContent);
+                });
+
+                const moreRepos = allRepos
+                    .filter(repo => !repo.fork && !mainRepoNames.has(repo.name))
+                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+                grid.innerHTML = '';
+
+                if (moreRepos.length === 0) {
+                    grid.innerHTML = '<p style="text-align: center; color: #8a8a8a; grid-column: 1 / -1;">No additional projects found.</p>';
+                    return;
+                }
+
+                moreRepos.forEach(repo => {
+                    const langDetails = getLanguageDetails(repo.language);
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.style.animation = 'fadeIn 0.5s ease-in';
+                    
+                    card.innerHTML = `
+                        <div class="project-icon">${langDetails.emoji}</div>
+                        <a href="${repo.html_url}" target="_blank" class="external-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <h3>${repo.name}</h3>
+                        <div class="project-meta">
+                            <span class="project-year">🗓️ ${formatDate(repo.updated_at)}</span>
+                        </div>
+                        <p>${repo.description || 'No description available for this project yet.'}</p>
+                        ${repo.language ? `<span class="project-tag ${langDetails.color}"><i class="fas fa-circle"></i> ${repo.language}</span>` : ''}
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading more projects:', error);
+                grid.innerHTML = '<p style="text-align: center; color: #8a8a8a; grid-column: 1 / -1;">Failed to load additional projects.</p>';
+            }
+        }
 
         function toggleEditMode() {
             editMode = !editMode;
