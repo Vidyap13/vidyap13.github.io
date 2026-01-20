@@ -782,16 +782,17 @@
         }
 
         .project-year {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 14px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #e1f5fe 100%);
-    border-radius: 15px;
-    font-size: 0.85em;
-    color: #2e7d32;
-    font-weight: 600;
-}
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #e1f5fe 100%);
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
         .progress-badge {
             display: inline-flex;
             align-items: center;
@@ -834,6 +835,12 @@
         }
 
         .project-tag.python { background: #e3f2fd; color: #1e88e5; }
+        .project-tag.blue { background: #e3f2fd; color: #1e88e5; }
+        .project-tag.orange { background: #fff3e0; color: #f57c00; }
+        .project-tag.purple { background: #f3e5f5; color: #8e24aa; }
+        .project-tag.green { background: #e8f5e9; color: #2e7d32; }
+        .project-tag.red { background: #ffebee; color: #c62828; }
+        .project-tag.teal { background: #e0f2f1; color: #00695c; }
 
         .contact-grid {
             display: grid;
@@ -891,225 +898,227 @@
             color: #8a8a8a;
             font-size: 0.95em;
         }
+
         .view-more-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 2px dashed rgba(255, 182, 217, 0.3);
-}
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px dashed rgba(255, 182, 217, 0.3);
+        }
 
-.view-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 40px;
-    background: linear-gradient(135deg, #ff9ed4 0%, #a8d5ff 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(255, 182, 217, 0.3);
-}
+        .view-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #ff9ed4 0%, #a8d5ff 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 182, 217, 0.3);
+        }
 
-.view-more-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255, 158, 212, 0.5);
-}
+        .view-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 158, 212, 0.5);
+        }
 
-.view-more-btn i {
-    transition: transform 0.3s;
-}
+        .view-more-btn i {
+            transition: transform 0.3s;
+        }
 
-.view-more-btn:hover i {
-    transform: translateX(5px);
-}
+        .view-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
         @media (max-width: 968px) {
-    .home-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
+            .home-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
 
-    .illustration-container {
-        order: -1;
-    }
+            .illustration-container {
+                order: -1;
+            }
 
-    .intro-text h1 {
-        font-size: 2em;
-    }
+            .intro-text h1 {
+                font-size: 2em;
+            }
 
-    .intro-text p {
-        font-size: 1.1em;
-    }
+            .intro-text p {
+                font-size: 1.1em;
+            }
 
-    nav {
-        padding: 15px 20px;
-    }
+            nav {
+                padding: 15px 20px;
+            }
 
-    .logo {
-        font-size: 1.5em;
-    }
+            .logo {
+                font-size: 1.5em;
+            }
 
-    .nav-buttons {
-        gap: 5px;
-        flex-wrap: wrap;
-    }
+            .nav-buttons {
+                gap: 5px;
+                flex-wrap: wrap;
+            }
 
-    .nav-btn {
-        padding: 8px 12px;
-        font-size: 0.85em;
-    }
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
 
-    .timeline::before {
-        left: 15px;
-    }
-    
-    .timeline-item {
-        padding-left: 50px;
-    }
-    
-    .timeline-dot {
-        left: 5px;
-    }
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-dot {
+                left: 5px;
+            }
 
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
 
-    .tech-item {
-        padding: 15px;
-    }
+            .tech-item {
+                padding: 15px;
+            }
 
-    .tech-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
+            .tech-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
 
-    .tech-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 24px;
-        margin: 0 auto;
-    }
+            .tech-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+                margin: 0 auto;
+            }
 
-    .tech-info {
-        width: 100%;
-    }
+            .tech-info {
+                width: 100%;
+            }
 
-    .tech-name {
-        font-size: 0.95em;
-    }
+            .tech-name {
+                font-size: 0.95em;
+            }
 
-    .skill-level {
-        font-size: 0.8em;
-    }
+            .skill-level {
+                font-size: 0.8em;
+            }
 
-    .skill-bar-container {
-        width: 100%;
-        margin: 0 auto;
-    }
+            .skill-bar-container {
+                width: 100%;
+                margin: 0 auto;
+            }
 
-    .soft-skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
+            .soft-skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
 
-    .soft-skill-card {
-        padding: 20px 15px;
-    }
+            .soft-skill-card {
+                padding: 20px 15px;
+            }
 
-    .soft-skill-icon {
-        font-size: 40px;
-    }
+            .soft-skill-icon {
+                font-size: 40px;
+            }
 
-    .soft-skill-card h3 {
-        font-size: 1.1em;
-    }
+            .soft-skill-card h3 {
+                font-size: 1.1em;
+            }
 
-    .soft-skill-card p {
-        font-size: 0.85em;
-    }
+            .soft-skill-card p {
+                font-size: 0.85em;
+            }
 
-    .section-title {
-        font-size: 2em;
-    }
+            .section-title {
+                font-size: 2em;
+            }
 
-    .category-title {
-        font-size: 1.4em;
-    }
+            .category-title {
+                font-size: 1.4em;
+            }
 
-    .profile-illustration {
-        width: 150px;
-        height: 150px;
-    }
+            .profile-illustration {
+                width: 150px;
+                height: 150px;
+            }
 
-    .waving-girl {
-        font-size: 70px;
-    }
-}
+            .waving-girl {
+                font-size: 70px;
+            }
+        }
 
-@media (max-width: 600px) {
-    .intro-text h1 {
-        font-size: 1.6em;
-    }
+        @media (max-width: 600px) {
+            .intro-text h1 {
+                font-size: 1.6em;
+            }
 
-    .home-container {
-        padding: 20px 15px;
-    }
+            .home-container {
+                padding: 20px 15px;
+            }
 
-    .about-content {
-        padding: 30px 20px;
-    }
+            .about-content {
+                padding: 30px 20px;
+            }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
 
-    .content-section {
-        padding: 60px 10px;
-    }
+            .content-section {
+                padding: 60px 10px;
+            }
 
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
 
-    .tech-item {
-        padding: 12px 8px;
-    }
+            .tech-item {
+                padding: 12px 8px;
+            }
 
-    .tech-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
+            .tech-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
 
-    .tech-name {
-        font-size: 0.85em;
-    }
+            .tech-name {
+                font-size: 0.85em;
+            }
 
-    .skill-level {
-        font-size: 0.75em;
-    }
+            .skill-level {
+                font-size: 0.75em;
+            }
 
-    .soft-skills-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+            .soft-skills-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
 
-    .category-title {
-        font-size: 1.2em;
-    }
+            .category-title {
+                font-size: 1.2em;
+            }
 
-    .section-title {
-        font-size: 1.8em;
-    }
-}
+            .section-title {
+                font-size: 1.8em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1127,463 +1136,401 @@
         <div class="nav-buttons">
             <a class="nav-btn" onclick="showPage('home')">Home</a>
             <a class="nav-btn" onclick="showPage('about')">About</a>
-<a class="nav-btn" onclick="showPage('skills')">Skills</a>
-<a class="nav-btn" onclick="showPage('experience')">Experience</a>
-<a class="nav-btn" onclick="showPage('projects')">Projects</a>
-<a class="nav-btn" onclick="showPage('contact')">Contact</a>
-</div>
-</nav>
-<div id="home" class="page active">
-    <div class="home-container">
-        <div class="home-content">
-            <div class="illustration-container">
-                <div class="illustration">
-                    <div class="deco-circle deco-1"></div>
-                    <div class="profile-illustration">
-                        <span class="waving-girl">👋</span>
+            <a class="nav-btn" onclick="showPage('skills')">Skills</a>
+            <a class="nav-btn" onclick="showPage('experience')">Experience</a>
+            <a class="nav-btn" onclick="showPage('projects')">Projects</a>
+            <a class="nav-btn" onclick="showPage('contact')">Contact</a>
+        </div>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="home-container">
+            <div class="home-content">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <div class="deco-circle deco-1"></div>
+                        <div class="profile-illustration">
+                            <span class="waving-girl">👋</span>
+                        </div>
+                        <div class="deco-circle deco-2"></div>
+                        <span class="sparkle-deco sparkle-1">✨</span>
+                        <span class="sparkle-deco sparkle-2">💫</span>
                     </div>
-                    <div class="deco-circle deco-2"></div>
-                    <span class="sparkle-deco sparkle-1">✨</span>
-                    <span class="sparkle-deco sparkle-2">💫</span>
                 </div>
+                
+                <div class="intro-text">
+                    <h1>Hey, I'm Vidya</h1>
+                    <p>I've spent enough time in the trenches of deployment to know that infrastructure is everything. But eventually, I realized I wanted to build the brains, not just the plumbing. Now I'm a Master's student at THWS, combining my engineering "OCD" with the creativity of AI to build things that are as smart as they are stable. 🚀</p>
+                    <a class="cta-button" onclick="showPage('contact')">
+                        Let's Chat <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page">
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">About Me 💫</h2>
+                <p class="section-subtitle">Get to know me better</p>
             </div>
             
-            <div class="intro-text">
-                <h1>Hey, I'm Vidya</h1>
-                <p>I've spent enough time in the trenches of deployment to know that infrastructure is everything. But eventually, I realized I wanted to build the brains, not just the plumbing. Now I'm a Master's student at THWS, combining my engineering "OCD" with the creativity of AI to build things that are as smart as they are stable. 🚀</p>
-                <a class="cta-button" onclick="showPage('contact')">
-                    Let's Chat <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="about-content">
+                <p>My journey in technology began with a Bachelor's in Information Science and Engineering, and I've since evolved into a software engineer with a deep fascination for Artificial Intelligence.</p>
+                
+                <p>I love fixing the gap between robust system architecture and cutting-edge Deep Learning. From automating workflows to building intelligent systems, I'm always excited to solve real-world problems with technology.</p>
+                
+                <p>When I'm not coding or training models, you'll find me creating acrylic paintings, DIY crafting, journaling my thoughts, or playing badminton! 🎨🏸</p>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Würzburg, Germany</p>
+                    </div>                
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="about" class="page">
-    <div class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">About Me 💫</h2>
-            <p class="section-subtitle">Get to know me better</p>
-        </div>
-        
-        <div class="about-content">
-            <p>My journey in technology began with a Bachelor's in Information Science and Engineering, and I've since evolved into a software engineer with a deep fascination for Artificial Intelligence.</p>
+    <div id="skills" class="page">
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise 🎯</h2>
+                <p class="section-subtitle">What I bring to the table</p>
+            </div>
             
-            <p>I love fixing the gap between robust system architecture and cutting-edge Deep Learning. From automating workflows to building intelligent systems, I'm always excited to solve real-world problems with technology.</p>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon blue">🐍</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Python</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon purple">📚</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">C#</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon red">⚙️</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">C++</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon orange">☕</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Java</div>
+                                    <div class="skill-level">Proficient</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title"><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon pink">🔥</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">PyTorch</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon orange">🧠</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">TensorFlow</div>
+                                    <div class="skill-level">Proficient</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon purple">🤖</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">LLMs & NLP</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon pink">🎯</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Machine Learning</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title"><i class="fas fa-server"></i> DevOps & Databases</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon blue">🐳</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Docker</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon teal">🗄️</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">MySQL</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon green">🍃</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">MongoDB</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon pink">🐰</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">RabbitMQ</div>
+                                    <div class="skill-level">Advanced</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon indigo">💻</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">.NET</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon green">🌐</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">REST APIs</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon teal">🚀</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Git</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-header">
+                                <div class="tech-icon orange">📊</div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Jira</div>
+                                    <div class="skill-level">Expert</div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title"><i class="fas fa-heart"></i> Soft Skills</h3>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">💡</div>
+                            <h3>Problem Solving</h3>
+                            <p>Creative approach to complex challenges with analytical thinking</p>
+                        </div>
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">🤝</div>
+                            <h3>Team Collaboration</h3>
+                            <p>Effective communication and teamwork in cross-functional environments</p>
+                        </div>
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">⚡</div>
+                            <h3>Quick Learner</h3>
+                            <p>Rapidly adapt to new technologies and methodologies</p>
+                        </div>
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">🎯</div>
+                            <h3>Project Management</h3>
+                            <p>Organized workflow with agile methodologies using Jira & Confluence</p>
+                        </div>
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">✨</div>
+                            <h3>Attention to Detail</h3>
+                            <p>Meticulous code quality and thorough testing practices</p>
+                        </div>
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">🌟</div>
+                            <h3>Leadership</h3>
+                            <p>Led project initiatives and mentored junior team members</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience" class="page">
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience 💼</h2>
+                <p class="section-subtitle">My journey in the tech world</p>
+            </div>
             
-            <p>When I'm not coding or training models, you'll find me creating acrylic paintings, DIY crafting, journaling my thoughts, or playing badminton! 🎨🏸</p>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Würzburg, Germany</p>
-                </div>                
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="skills" class="page">
-    <div class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">Skills & Expertise 🎯</h2>
-            <p class="section-subtitle">What I bring to the table</p>
-        </div>
-        
-        <div class="skills-container">
-            <div class="skills-category">
-                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon blue">🐍</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Python</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon purple">📚</div>
-                            <div class="tech-info">
-                                <div class="tech-name">C#</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon red">⚙️</div>
-                            <div class="tech-info">
-                                <div class="tech-name">C++</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon orange">☕</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Java</div>
-                                <div class="skill-level">Proficient</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%"></div>
-                        </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2025 – Present</div>
+                        <h3>WerkStudent</h3>
+                        <div class="company">Clario</div>
+                        <ul class="experience-list">
+                            <li>Automated data transfer from PHT device website to Excel using custom scripts, saving time and reducing manual errors</li>
+                            <li>Streamlined SIM card & model entry by developing code to auto-fill key details</li>
+                            <li>Optimized data workflows by implementing real-time synchronization between web data and Excel reports</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="skills-category">
-                <h3 class="category-title"><i class="fas fa-brain"></i> AI & Machine Learning</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon pink">🔥</div>
-                            <div class="tech-info">
-                                <div class="tech-name">PyTorch</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon orange">🧠</div>
-                            <div class="tech-info">
-                                <div class="tech-name">TensorFlow</div>
-                                <div class="skill-level">Proficient</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon purple">🤖</div>
-                            <div class="tech-info">
-                                <div class="tech-name">LLMs & NLP</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon pink">🎯</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Machine Learning</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%"></div>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">11/2023 – 03/2025</div>
+                        <h3>Software Engineer</h3>
+                        <div class="company">HCLTech</div>
+                        <ul class="experience-list">
+                            <li>Led project management initiatives under ITER project, resolving framework bottlenecks and improved application performance by 70%</li>
+                            <li>Implemented cloud-based deployment solutions using Docker and RabbitMQ for streamlined data acquisition systems</li>
+                            <li>Managed dashboard upgrade utilizing agile methodologies, reducing data retrieval time by 60%</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="skills-category">
-                <h3 class="category-title"><i class="fas fa-server"></i> DevOps & Databases</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon blue">🐳</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Docker</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon teal">🗄️</div>
-                            <div class="tech-info">
-                                <div class="tech-name">MySQL</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon green">🍃</div>
-                            <div class="tech-info">
-                                <div class="tech-name">MongoDB</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon pink">🐰</div>
-                            <div class="tech-info">
-                                <div class="tech-name">RabbitMQ</div>
-                                <div class="skill-level">Advanced</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon indigo">💻</div>
-                            <div class="tech-info">
-                                <div class="tech-name">.NET</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon green">🌐</div>
-                            <div class="tech-info">
-                                <div class="tech-name">REST APIs</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon teal">🚀</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Git</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <div class="tech-header">
-                            <div class="tech-icon orange">📊</div>
-                            <div class="tech-info">
-                                <div class="tech-name">Jira</div>
-                                <div class="skill-level">Expert</div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 90%"></div>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">08/2022 – 11/2023</div>
+                        <h3>Graduate Trainee Engineer</h3>
+                        <div class="company">HCLTech</div>
+                        <ul class="experience-list">
+                            <li>Automated system administration tasks through scripting, reducing manual effort by 80%</li>
+                            <li>Designed and implemented SQL database optimization, reducing query execution time by 35%</li>
+                            <li>Worked closely with development teams to resolve customer issues and improve user satisfaction</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="skills-category">
-                <h3 class="category-title"><i class="fas fa-heart"></i> Soft Skills</h3>
-                <div class="soft-skills-grid">
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">💡</div>
-                        <h3>Problem Solving</h3>
-                        <p>Creative approach to complex challenges with analytical thinking</p>
-                    </div>
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">🤝</div>
-                        <h3>Team Collaboration</h3>
-                        <p>Effective communication and teamwork in cross-functional environments</p>
-                    </div>
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">⚡</div>
-                        <h3>Quick Learner</h3>
-                        <p>Rapidly adapt to new technologies and methodologies</p>
-                    </div>
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">🎯</div>
-                        <h3>Project Management</h3>
-                        <p>Organized workflow with agile methodologies using Jira & Confluence</p>
-                    </div>
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">✨</div>
-                        <h3>Attention to Detail</h3>
-                        <p>Meticulous code quality and thorough testing practices</p>
-                    </div>
-                    <div class="soft-skill-card">
-                        <div class="soft-skill-icon">🌟</div>
-                        <h3>Leadership</h3>
-                        <p>Led project initiatives and mentored junior team members</p>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">04/2022 – 05/2022</div>
+                        <h3>Intern</h3>
+                        <div class="company">Prinston Smart Engineers</div>
+                        <ul class="experience-list">
+                            <li>Developed expertise in Data Science with Python, focusing on neural networks and their branches</li>
+                            <li>Applied libraries and frameworks to optimize implementation</li>
+                            <li>Gained hands-on experience with software tools, enhancing technical proficiency</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="experience" class="page">
-    <div class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">Professional Experience 💼</h2>
-            <p class="section-subtitle">My journey in the tech world</p>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">09/2025 – Present</div>
-                    <h3>WerkStudent</h3>
-                    <div class="company">Clario</div>
-                    <ul class="experience-list">
-                        <li>Automated data transfer from PHT device website to Excel using custom scripts, saving time and reducing manual errors</li>
-                        <li>Streamlined SIM card & model entry by developing code to auto-fill key details</li>
-                        <li>Optimized data workflows by implementing real-time synchronization between web data and Excel reports</li>
-                    </ul>
+    <div id="projects" class="page">
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Projects 🚀</h2>
+                <p class="section-subtitle">Somethings I've been working on</p>
+            </div>
+            
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be loaded dynamically from GitHub -->
+                <div class="project-card" style="grid-column: 1 / -1; text-align: center; padding: 60px 30px;">
+                    <div style="font-size: 40px; margin-bottom: 20px;">⏳</div>
+                    <p style="color: #8a8a8a; font-size: 1.1em;">Loading projects from GitHub...</p>
                 </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">11/2023 – 03/2025</div>
-                    <h3>Software Engineer</h3>
-                    <div class="company">HCLTech</div>
-                    <ul class="experience-list">
-                        <li>Led project management initiatives under ITER project, resolving framework bottlenecks and improved application performance by 70%</li>
-                        <li>Implemented cloud-based deployment solutions using Docker and RabbitMQ for streamlined data acquisition systems</li>
-                        <li>Managed dashboard upgrade utilizing agile methodologies, reducing data retrieval time by 60%</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">08/2022 – 11/2023</div>
-                    <h3>Graduate Trainee Engineer</h3>
-                    <div class="company">HCLTech</div>
-                    <ul class="experience-list">
-                        <li>Automated system administration tasks through scripting, reducing manual effort by 80%</li>
-                        <li>Designed and implemented SQL database optimization, reducing query execution time by 35%</li>
-                        <li>Worked closely with development teams to resolve customer issues and improve user satisfaction</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">04/2022 – 05/2022</div>
-                    <h3>Intern</h3>
-                    <div class="company">Prinston Smart Engineers</div>
-                    <ul class="experience-list">
-                        <li>Developed expertise in Data Science with Python, focusing on neural networks and their branches</li>
-                        <li>Applied libraries and frameworks to optimize implementation</li>
-                        <li>Gained hands-on experience with software tools, enhancing technical proficiency</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="projects" class="page">
-    <div class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">Projects 🚀</h2>
-            <p class="section-subtitle">Somethings I've been working on</p>
-        </div>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon">📁</div>                    
-                <h3>CAIRA:THWS MAI Chatbot</h3>
-                <div class="project-meta">
-    <span class="project-year">🗓️ Nov 2025 - Present</span>
-    <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-</div>
-                <p>An AI-powered assistant that helps new Master's students navigate university life. Built with RAG architecture, it retrieves accurate answers from university documents and provides personalized guidance through natural conversations using the Qwen language model.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> Python, Qwen, RAG</span>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">📁</div>                  
-                <h3>Amazon Review RAG</h3>
-                <div class="project-meta">
-                <span class="project-year">🗓️ Nov 2025 - Present</span>
-                <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-                </div>
-                <p>A smart shopping companion that cuts through thousands of product reviews to give you the real story. Uses semantic search to find relevant insights and summarizes what customers actually think about products, making online shopping decisions faster and more informed.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> Python, LangChain, FAISS</span>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">📁</div>                    
-                <h3>H. pylori Detection</h3>
-                <div class="project-meta">
-                <span class="project-year">🗓️ Oct 2025 - Present</span>
-                <span class="progress-badge"><i class="fas fa-spinner"></i> In Progress</span>
-                </div>
-                <p>A medical AI system that helps pathologists detect H. pylori bacteria in microscopy images. Combines two powerful detection models to achieve high accuracy, potentially speeding up diagnoses and improving patient outcomes in gastric disease screening.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> QuPath, YOLO, faster R-CNN</span>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">📁</div>
-                <a href="https://github.com/Vidyap13/Blackjack2025" target="_blank" class="external-link">
-                    <i class="fas fa-external-link-alt"></i>
-                </a>
-                <h3>BlackJack</h3>
-                <div class="project-meta">
-                <span class="project-year">🗓️ July 2025</span>
-                </div>
-                <p>Teaching a computer to play Blackjack like a pro using reinforcement learning. The AI learns optimal strategies through trial and error, incorporating card counting techniques to maximize winning chances - a fun dive into decision-making algorithms.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> Python, Expected SARSA, Monte Carlo</span>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">📁</div>
-                <a href="https://github.com/Vidyap13/ParticleFilter2025" target="_blank" class="external-link">
-                    <i class="fas fa-external-link-alt"></i>
-                </a>
-                <h3>Particle Filter</h3>
-                <div class="project-meta">
-    <span class="project-year">🗓️ Jun 2025</span>
-</div>
-                <p>A robust tracking system that predicts object movement even when sensors fail or provide noisy data. Uses particle filtering to maintain accurate position estimates in uncertain conditions - crucial for applications like autonomous vehicles and robotics.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> Python</span>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">📁</div>                    
-                <h3>Megacosm</h3>
-                <div class="project-meta">
-    <span class="project-year">🗓️ May 2022</span>
-</div>
-                <p>An automated stargazing assistant that identifies and classifies celestial objects in telescope images. Achieved 92% accuracy in detecting stars, galaxies, and other cosmic phenomena - helping astronomers process massive amounts of sky survey data efficiently.</p>
-                <span class="project-tag python"><i class="fas fa-circle"></i> Python, YOLOv3</span>
-            </div>
             </div>
             
             <div class="view-more-container">
@@ -1594,60 +1541,148 @@
             </div>
         </div>
     </div>
-        </div>
-    </div>
-</div>
 
-<div id="contact" class="page">
-    <div class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">Let's Connect! 💌</h2>
-            <p class="section-subtitle">Feel free to reach out</p>
-        </div>
-        
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <a href="mailto:vidyapadmanabha13@gmail.com">vidyapadmanabha13@gmail.com</a>
+    <div id="contact" class="page">
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect! 💌</h2>
+                <p class="section-subtitle">Feel free to reach out</p>
             </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fab fa-linkedin"></i>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:vidyapadmanabha13@gmail.com">vidyapadmanabha13@gmail.com</a>
                 </div>
-                <h3>LinkedIn</h3>
-                <a href="https://linkedin.com/in/vidya1311" target="_blank">linkedin.com/in/vidya1311</a>
-            </div>
 
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fab fa-github"></i>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/vidya1311" target="_blank">linkedin.com/in/vidya1311</a>
                 </div>
-                <h3>GitHub</h3>
-                <a href="https://github.com/Vidyap13" target="_blank">github.com/Vidyap13</a>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Vidyap13" target="_blank">github.com/Vidyap13</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <p>✨ Made with passion by Vidya Padmanabha</p>
-    <p>© 2025 • Built with HTML, CSS & Love</p>
-</footer>
+    <footer>
+        <p>✨ Made with passion by Vidya Padmanabha</p>
+        <p>© 2025 • Built with HTML, CSS & Love</p>
+    </footer>
 
-<script>
-    function showPage(pageName) {
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
-        document.getElementById(pageName).classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
+    <script>
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
+        // Function to get language-specific emoji and color
+        function getLanguageDetails(language) {
+            const languageMap = {
+                'Python': { emoji: '🐍', color: 'python' },
+                'JavaScript': { emoji: '💛', color: 'orange' },
+                'TypeScript': { emoji: '💙', color: 'blue' },
+                'Java': { emoji: '☕', color: 'orange' },
+                'C++': { emoji: '⚙️', color: 'red' },
+                'C#': { emoji: '💜', color: 'purple' },
+                'HTML': { emoji: '🌐', color: 'orange' },
+                'CSS': { emoji: '🎨', color: 'blue' },
+                'PHP': { emoji: '🐘', color: 'purple' },
+                'Jupyter Notebook': { emoji: '📓', color: 'orange' }
+            };
+            return languageMap[language] || { emoji: '📁', color: 'blue' };
+        }
 
+        // Function to format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return `${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
 
+        // Function to fetch GitHub repositories
+        async function loadGitHubProjects() {
+            const username = 'Vidyap13';
+            const container = document.getElementById('projects-container');
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch repositories');
+                }
+                
+                const repos = await response.json();
+                
+                // Filter out forked repos and sort by update date
+                const originalRepos = repos
+                    .filter(repo => !repo.fork)
+                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+                    .slice(0, 6); // Get top 6 most recently updated repos
+                
+                if (originalRepos.length === 0) {
+                    container.innerHTML = `
+                        <div class="project-card" style="grid-column: 1 / -1; text-align: center; padding: 60px 30px;">
+                            <div style="font-size: 40px; margin-bottom: 20px;">📭</div>
+                            <p style="color: #8a8a8a; font-size: 1.1em;">No repositories found</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Clear loading message
+                container.innerHTML = '';
+                
+                // Create project cards
+                originalRepos.forEach(repo => {
+                    const langDetails = getLanguageDetails(repo.language);
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.style.animation = 'fadeIn 0.5s ease-in';
+                    
+                    card.innerHTML = `
+                        <div class="project-icon">${langDetails.emoji}</div>
+                        <a href="${repo.html_url}" target="_blank" class="external-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <h3>${repo.name}</h3>
+                        <div class="project-meta">
+                            <span class="project-year">🗓️ ${formatDate(repo.updated_at)}</span>
+                        </div>
+                        <p>${repo.description || 'No description available for this project yet.'}</p>
+                        ${repo.language ? `<span class="project-tag ${langDetails.color}"><i class="fas fa-circle"></i> ${repo.language}</span>` : ''}
+                    `;
+                    
+                    container.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.error('Error loading GitHub projects:', error);
+                container.innerHTML = `
+                    <div class="project-card" style="grid-column: 1 / -1; text-align: center; padding: 60px 30px;">
+                        <div style="font-size: 40px; margin-bottom: 20px;">⚠️</div>
+                        <p style="color: #8a8a8a; font-size: 1.1em;">Failed to load projects. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
 
-
+        // Load projects when page loads
+        window.addEventListener('DOMContentLoaded', loadGitHubProjects);
+    </script>
+</body>
+</html>
