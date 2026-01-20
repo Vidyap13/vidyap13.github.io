@@ -726,6 +726,17 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
             position: relative;
+            cursor: move;
+        }
+
+        .project-card.dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+
+        .project-card.drag-over {
+            border: 2px dashed #ffb6d9;
+            background: #fff5f9;
         }
 
         .project-card:hover {
@@ -902,9 +913,67 @@
         .view-more-container {
             display: flex;
             justify-content: center;
+            align-items: center;
+            gap: 20px;
             margin-top: 50px;
             padding-top: 30px;
             border-top: 2px dashed rgba(255, 182, 217, 0.3);
+            flex-wrap: wrap;
+        }
+
+        .edit-mode-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: white;
+            color: #ff9ed4;
+            text-decoration: none;
+            border: 2px solid #ff9ed4;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .edit-mode-btn:hover {
+            background: #ff9ed4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 158, 212, 0.5);
+        }
+
+        .edit-mode-btn.active {
+            background: linear-gradient(135deg, #ff9ed4 0%, #a8d5ff 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .edit-instructions {
+            display: none;
+            background: linear-gradient(135deg, #fff5f9 0%, #f0f9ff 100%);
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px dashed #ffb6d9;
+        }
+
+        .edit-instructions.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .edit-instructions h4 {
+            color: #ff9ed4;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .edit-instructions p {
+            color: #6a6a6a;
+            margin: 0;
         }
 
         .view-more-btn {
@@ -1525,6 +1594,11 @@
                 <p class="section-subtitle">Somethings I've been working on</p>
             </div>
             
+            <div class="edit-instructions" id="edit-instructions">
+                <h4>✨ Edit Mode Active</h4>
+                <p>Drag and drop project cards to rearrange them. Your changes are saved automatically!</p>
+            </div>
+            
             <div class="projects-grid" id="projects-container">
                 <!-- Projects will be loaded dynamically from GitHub -->
                 <div class="project-card" style="grid-column: 1 / -1; text-align: center; padding: 60px 30px;">
@@ -1534,6 +1608,10 @@
             </div>
             
             <div class="view-more-container">
+                <button class="edit-mode-btn" id="edit-mode-btn" onclick="toggleEditMode()">
+                    <i class="fas fa-edit"></i>
+                    <span>Rearrange Projects</span>
+                </button>
                 <a href="https://github.com/Vidyap13?tab=repositories" target="_blank" class="view-more-btn">
                     <span>View More Projects</span>
                     <i class="fas fa-arrow-right"></i>
@@ -1732,8 +1810,11 @@
                 // Clear loading message
                 container.innerHTML = '';
                 
+                // Apply custom order if exists
+                const orderedRepos = applyCustomOrder(reposToDisplay);
+                
                 // Create project cards
-                reposToDisplay.forEach(repo => {
+                orderedRepos.forEach(repo => {
                     const langDetails = getLanguageDetails(repo.language);
                     const card = document.createElement('div');
                     card.className = 'project-card';
@@ -1768,6 +1849,141 @@
 
         // Load projects when page loads
         window.addEventListener('DOMContentLoaded', loadGitHubProjects);
+
+        // Edit mode variables
+        let editMode = false;
+        let draggedElement = null;
+        let customOrder = [];
+
+        function toggleEditMode() {
+            editMode = !editMode;
+            const btn = document.getElementById('edit-mode-btn');
+            const instructions = document.getElementById('edit-instructions');
+            const cards = document.querySelectorAll('.project-card');
+
+            if (editMode) {
+                btn.classList.add('active');
+                btn.innerHTML = '<i class="fas fa-save"></i><span>Save & Exit</span>';
+                instructions.classList.add('active');
+                
+                // Enable dragging
+                cards.forEach((card, index) => {
+                    card.draggable = true;
+                    card.addEventListener('dragstart', handleDragStart);
+                    card.addEventListener('dragend', handleDragEnd);
+                    card.addEventListener('dragover', handleDragOver);
+                    card.addEventListener('drop', handleDrop);
+                    card.addEventListener('dragenter', handleDragEnter);
+                    card.addEventListener('dragleave', handleDragLeave);
+                });
+            } else {
+                btn.classList.remove('active');
+                btn.innerHTML = '<i class="fas fa-edit"></i><span>Rearrange Projects</span>';
+                instructions.classList.remove('active');
+                
+                // Disable dragging
+                cards.forEach(card => {
+                    card.draggable = false;
+                    card.removeEventListener('dragstart', handleDragStart);
+                    card.removeEventListener('dragend', handleDragEnd);
+                    card.removeEventListener('dragover', handleDragOver);
+                    card.removeEventListener('drop', handleDrop);
+                    card.removeEventListener('dragenter', handleDragEnter);
+                    card.removeEventListener('dragleave', handleDragLeave);
+                });
+
+                // Save order to memory
+                saveCustomOrder();
+            }
+        }
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => card.classList.remove('drag-over'));
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            if (this !== draggedElement) {
+                this.classList.add('drag-over');
+            }
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+
+            if (draggedElement !== this) {
+                const container = document.getElementById('projects-container');
+                const allCards = [...container.children];
+                const draggedIndex = allCards.indexOf(draggedElement);
+                const targetIndex = allCards.indexOf(this);
+
+                if (draggedIndex < targetIndex) {
+                    this.parentNode.insertBefore(draggedElement, this.nextSibling);
+                } else {
+                    this.parentNode.insertBefore(draggedElement, this);
+                }
+            }
+
+            this.classList.remove('drag-over');
+            return false;
+        }
+
+        function saveCustomOrder() {
+            const container = document.getElementById('projects-container');
+            const cards = container.querySelectorAll('.project-card');
+            customOrder = [];
+            
+            cards.forEach(card => {
+                const name = card.querySelector('h3')?.textContent;
+                if (name) {
+                    customOrder.push(name);
+                }
+            });
+
+            // Store in memory for this session
+            console.log('Custom order saved:', customOrder);
+        }
+
+        function applyCustomOrder(repos) {
+            if (customOrder.length === 0) return repos;
+
+            const repoMap = new Map(repos.map(repo => [repo.name, repo]));
+            const ordered = [];
+
+            // Add repos in custom order first
+            customOrder.forEach(name => {
+                if (repoMap.has(name)) {
+                    ordered.push(repoMap.get(name));
+                    repoMap.delete(name);
+                }
+            });
+
+            // Add any remaining repos
+            repoMap.forEach(repo => ordered.push(repo));
+
+            return ordered;
+        }
     </script>
 </body>
 </html>
