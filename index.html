@@ -980,44 +980,13 @@
             margin: 0;
         }
 
-        .more-projects-container {
-            display: none;
-            max-height: 600px;
-            overflow-y: auto;
-            margin-top: 40px;
-            padding: 30px;
-            background: linear-gradient(135deg, #fff5f9 0%, #f0f9ff 100%);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 182, 217, 0.3);
+        .view-more-btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
 
-        .more-projects-container.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .more-projects-container h3 {
-            color: #3d3d3d;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.5em;
-        }
-
-        .more-projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .view-more-btn.active {
-            background: white;
-            color: #ff9ed4;
-            border: 2px solid #ff9ed4;
-        }
-
-        .view-more-btn.active:hover {
-            background: #ff9ed4;
-            color: white;
+        #projects-container.expanded {
+            max-height: none;
         }
 
         .view-more-btn {
@@ -1650,13 +1619,6 @@
                     <p style="color: #8a8a8a; font-size: 1.1em;">Loading projects from GitHub...</p>
                 </div>
             </div>
-
-            <div class="more-projects-container" id="more-projects-container">
-                <h3>More Projects 📚</h3>
-                <div class="more-projects-grid" id="more-projects-grid">
-                    <!-- Additional projects will be loaded here -->
-                </div>
-            </div>
             
             <div class="view-more-container">
                 <button class="edit-mode-btn" id="edit-mode-btn" onclick="toggleEditMode()">
@@ -1904,7 +1866,7 @@
         // Edit mode variables
         let editMode = false;
         let draggedElement = null;
-        let customOrder = [];
+        let customOrder = JSON.parse(localStorage.getItem('projectOrder') || '[]');
         let allRepos = []; // Store all repositories
         let showingMore = false;
 
@@ -1917,29 +1879,19 @@
         });
 
         function toggleMoreProjects() {
-            showingMore = !showingMore;
-            const container = document.getElementById('more-projects-container');
+            if (showingMore) return; // Prevent loading again
+            
+            showingMore = true;
             const btn = document.getElementById('view-more-btn');
-
-            if (showingMore) {
-                container.classList.add('active');
-                btn.classList.add('active');
-                btn.innerHTML = '<span>Show Less</span><i class="fas fa-chevron-up"></i>';
-                loadMoreProjects();
-                // Smooth scroll to more projects
-                setTimeout(() => {
-                    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            } else {
-                container.classList.remove('active');
-                btn.classList.remove('active');
-                btn.innerHTML = '<span>View More Projects</span><i class="fas fa-chevron-down"></i>';
-            }
+            btn.classList.add('loading');
+            btn.innerHTML = '<span>Loading...</span><i class="fas fa-spinner fa-spin"></i>';
+            
+            loadMoreProjects();
         }
 
         async function loadMoreProjects() {
             const username = 'Vidyap13';
-            const grid = document.getElementById('more-projects-grid');
+            const container = document.getElementById('projects-container');
             
             try {
                 if (allRepos.length === 0) {
@@ -1949,25 +1901,28 @@
                     }
                 }
 
-                // Get repos that aren't already shown in the main section
-                const mainContainer = document.getElementById('projects-container');
-                const mainRepoNames = new Set();
-                mainContainer.querySelectorAll('h3').forEach(h3 => {
-                    mainRepoNames.add(h3.textContent);
+                // Get repos that aren't already shown
+                const currentRepoNames = new Set();
+                container.querySelectorAll('.project-card h3').forEach(h3 => {
+                    currentRepoNames.add(h3.textContent);
                 });
 
                 const moreRepos = allRepos
-                    .filter(repo => !repo.fork && !mainRepoNames.has(repo.name))
+                    .filter(repo => !repo.fork && !currentRepoNames.has(repo.name))
                     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
-                grid.innerHTML = '';
+                // Apply custom order if exists
+                const orderedRepos = applyCustomOrder(moreRepos);
 
-                if (moreRepos.length === 0) {
-                    grid.innerHTML = '<p style="text-align: center; color: #8a8a8a; grid-column: 1 / -1;">No additional projects found.</p>';
+                if (orderedRepos.length === 0) {
+                    const btn = document.getElementById('view-more-btn');
+                    btn.innerHTML = '<span>No More Projects</span><i class="fas fa-check"></i>';
+                    btn.disabled = true;
                     return;
                 }
 
-                moreRepos.forEach(repo => {
+                // Add more projects to the same grid
+                orderedRepos.forEach(repo => {
                     const langDetails = getLanguageDetails(repo.language);
                     const card = document.createElement('div');
                     card.className = 'project-card';
@@ -1986,12 +1941,18 @@
                         ${repo.language ? `<span class="project-tag ${langDetails.color}"><i class="fas fa-circle"></i> ${repo.language}</span>` : ''}
                     `;
                     
-                    grid.appendChild(card);
+                    container.appendChild(card);
                 });
+
+                // Update button
+                const btn = document.getElementById('view-more-btn');
+                btn.style.display = 'none'; // Hide button after loading all
 
             } catch (error) {
                 console.error('Error loading more projects:', error);
-                grid.innerHTML = '<p style="text-align: center; color: #8a8a8a; grid-column: 1 / -1;">Failed to load additional projects.</p>';
+                const btn = document.getElementById('view-more-btn');
+                btn.classList.remove('loading');
+                btn.innerHTML = '<span>Error Loading</span><i class="fas fa-exclamation-triangle"></i>';
             }
         }
 
@@ -2006,7 +1967,7 @@
                 btn.innerHTML = '<i class="fas fa-save"></i><span>Save & Exit</span>';
                 instructions.classList.add('active');
                 
-                // Enable dragging
+                // Enable dragging for all cards
                 cards.forEach((card, index) => {
                     card.draggable = true;
                     card.addEventListener('dragstart', handleDragStart);
@@ -2032,7 +1993,7 @@
                     card.removeEventListener('dragleave', handleDragLeave);
                 });
 
-                // Save order to memory
+                // Save order permanently to localStorage
                 saveCustomOrder();
             }
         }
@@ -2101,8 +2062,9 @@
                 }
             });
 
-            // Store in memory for this session
-            console.log('Custom order saved:', customOrder);
+            // Store permanently in localStorage so all visitors see the same order
+            localStorage.setItem('projectOrder', JSON.stringify(customOrder));
+            console.log('Custom order saved permanently:', customOrder);
         }
 
         function applyCustomOrder(repos) {
